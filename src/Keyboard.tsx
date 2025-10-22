@@ -47,15 +47,22 @@ export function Keyboard({
                 gap: ".5em",
             }}
         >
-            {KEYS.map((key) => (
-                <button
-                    onClick={() => addGuessedLetter(key)}
-                    key={key}
-                    className={`${styles.btn}`}
-                >
-                    {key}
-                </button>
-            ))}
+            {KEYS.map((key) => {
+                const isActive = activeLetters.includes(key)
+                const isInactive = inactiveLetters.includes(key)
+                return (
+                    <button
+                        onClick={() => addGuessedLetter(key)}
+                        key={key}
+                        className={`${styles.btn} ${
+                            isActive ? styles.active : ""
+                        } ${isInactive ? styles.inactive : ""}`}
+                        disabled={isActive || isInactive}
+                    >
+                        {key}
+                    </button>
+                )
+            })}
         </div>
     )
 }

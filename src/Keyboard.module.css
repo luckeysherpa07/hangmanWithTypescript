@@ -12,8 +12,8 @@
 }
 
 .btn:active {
-    background-color: hsl(200, 100%, 50%);
-    color: white;
+    background-color: hsl(239, 100%, 50%);
+    color: blue;
 }
 
 .btn.inactive {
