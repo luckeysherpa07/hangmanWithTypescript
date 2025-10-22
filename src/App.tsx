@@ -49,7 +49,8 @@ function App() {
         const handler = (e: KeyboardEvent) => {
             const key = e.key
             if (key !== "Enter") return
-
+            e.preventDefault()
+            setGuessedLetters([])
             setWordToGuess(getWord())
         }
 
@@ -57,7 +58,7 @@ function App() {
         return () => {
             document.removeEventListener("keypress", handler)
         }
-    }, [guessedLetters])
+    }, [])
 
     return (
         <div
